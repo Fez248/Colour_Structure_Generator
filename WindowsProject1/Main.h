@@ -2,7 +2,7 @@
 #include <wx/wx.h>
 #include <wx/gbsizer.h>
 #include <vector>
-#include <random>
+#include <cstdlib>
 #include <list>
 
 class Main : public wxFrame
