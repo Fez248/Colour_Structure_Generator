@@ -1,6 +1,6 @@
 #include "Main.h"
 
-Main::Main() : wxFrame(nullptr, wxID_ANY, "Cluster", wxPoint(30, 30), wxSize(800, 600))
+Main::Main() : wxFrame(nullptr, wxID_ANY, "Palette Generator", wxPoint(30, 30), wxSize(800, 600))
 {
 	//Find Colors
 	cdata = new wxColourDatabase();
@@ -71,25 +71,98 @@ void Main::set_elements()
 
 void Main::OnButton1(wxCommandEvent& event)
 {
-	srand((unsigned)time(NULL));
-	int value1, value2, value3;
+	//srand((unsigned)time(NULL));
+	srand(GetTickCount64());
+	int value1, value2, value3, value4;
 
 	value1 = rand() % 256;
 	value2 = rand() % 256;
 	value3 = rand() % 256;
+	value4 = rand() % 5;
 
-	wxButton* auxb = *button_list.begin();
-	auxb->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value2, 255 - value3));
-
-	std::list<wxPanel*>::iterator ite = panel_list.end();
-	for (std::list<wxPanel*>::iterator it = panel_list.begin(); it != ite; ++it)
+	if (value4 == 0)
 	{
-		wxPanel* auxp = *it;
-		int id = auxp->GetId();
+		wxButton* auxb = *button_list.begin();
+		auxb->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value1, 255 - value1));
 
-		if (id == 2 or id == 5) auxp->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value2, 255 - value3));
-		else auxp->SetOwnBackgroundColour(wxColour(value1, value2, value3));
+		std::list<wxPanel*>::iterator ite = panel_list.end();
+		for (std::list<wxPanel*>::iterator it = panel_list.begin(); it != ite; ++it)
+		{
+			wxPanel* auxp = *it;
+			int id = auxp->GetId();
 
-		auxp->Refresh();
+			if (id == 2 or id == 5) auxp->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value1, 255 - value1));
+			else auxp->SetOwnBackgroundColour(wxColour(value1, value1, value1));
+
+			auxp->Refresh();
+		}
+	}
+	else if (value4 == 1)
+	{
+		wxButton* auxb = *button_list.begin();
+		auxb->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value2, 255 - value2));
+
+		std::list<wxPanel*>::iterator ite = panel_list.end();
+		for (std::list<wxPanel*>::iterator it = panel_list.begin(); it != ite; ++it)
+		{
+			wxPanel* auxp = *it;
+			int id = auxp->GetId();
+
+			if (id == 2 or id == 5) auxp->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value2, 255 - value2));
+			else auxp->SetOwnBackgroundColour(wxColour(value1, value2, value2));
+
+			auxp->Refresh();
+		}
+	}
+	else if (value4 == 2)
+	{
+		wxButton* auxb = *button_list.begin();
+		auxb->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value1, 255 - value2));
+
+		std::list<wxPanel*>::iterator ite = panel_list.end();
+		for (std::list<wxPanel*>::iterator it = panel_list.begin(); it != ite; ++it)
+		{
+			wxPanel* auxp = *it;
+			int id = auxp->GetId();
+
+			if (id == 2 or id == 5) auxp->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value1, 255 - value2));
+			else auxp->SetOwnBackgroundColour(wxColour(value1, value1, value2));
+
+			auxp->Refresh();
+		}
+	}
+	else if (value4 == 3)
+	{
+		wxButton* auxb = *button_list.begin();
+		auxb->SetOwnBackgroundColour(wxColour(255 - value2, 255 - value1, 255 - value2));
+
+		std::list<wxPanel*>::iterator ite = panel_list.end();
+		for (std::list<wxPanel*>::iterator it = panel_list.begin(); it != ite; ++it)
+		{
+			wxPanel* auxp = *it;
+			int id = auxp->GetId();
+
+			if (id == 2 or id == 5) auxp->SetOwnBackgroundColour(wxColour(255 - value2, 255 - value1, 255 - value2));
+			else auxp->SetOwnBackgroundColour(wxColour(value2, value1, value2));
+
+			auxp->Refresh();
+		}
+	}
+	else if (value4 == 4)
+	{
+		wxButton* auxb = *button_list.begin();
+		auxb->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value2, 255 - value3));
+
+		std::list<wxPanel*>::iterator ite = panel_list.end();
+		for (std::list<wxPanel*>::iterator it = panel_list.begin(); it != ite; ++it)
+		{
+			wxPanel* auxp = *it;
+			int id = auxp->GetId();
+
+			if (id == 2 or id == 5) auxp->SetOwnBackgroundColour(wxColour(255 - value1, 255 - value2, 255 - value3));
+			else auxp->SetOwnBackgroundColour(wxColour(value1, value2, value3));
+
+			auxp->Refresh();
+		}
 	}
 }
